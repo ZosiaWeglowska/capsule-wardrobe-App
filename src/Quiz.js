@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import "./App.scss";
+import { Link } from "react-router-dom";
 
 // zbudować obiekt z treściami do tworzenia pytań,
 // sprawić, żeby działał
 // w przyszłości przenieść go na json serwer
-
-//warning dla niewypełnionego
 //co jeśli równa ilość odpowiedzi?
-
 //generator inputa i labela
 
 //\
+
+//---Pytanie do quizu (z 5ma opcjami odpowiedzi)
 
 const Question = (props) => {
   const { num, handleChange } = props;
@@ -62,22 +62,48 @@ const Question = (props) => {
           value="H"
           onChange={handleChange}
         />
-        <label htmlFor={`question${num}_H`}>Opis figury H</label>
-
-        
+        <label htmlFor={`question${num}_H`}>Odp figury H</label>
       </form>
     </div>
   );
 };
 
-const Quiz = () => {
+//---funkcja do obsługi wyników quizu
 
-  const [state1, setState1] = useState("");
-  const [state2, setState2] = useState("");
-  const [state3, setState3] = useState("");
-  const [state4, setState4] = useState("");
-  const [state5, setState5] = useState("");
-  const [state6, setState6] = useState("");
+const modeArray = (array) => {
+  const array2 = array.filter((element) => element != null);
+  if (array2.length < 5) return alert("Uzupełnij wszystkie odpowiedzi");
+
+  let modeMap = {},
+    maxCount = 1,
+    modes = [];
+
+  for (let i = 0; i < array.length; i++) {
+    let el = array[i];
+
+    if (modeMap[el] == null) modeMap[el] = 1;
+    else modeMap[el]++;
+
+    if (modeMap[el] > maxCount) {
+      modes = [el];
+      maxCount = modeMap[el];
+    } else if (modeMap[el] === maxCount) {
+      modes.push(el);
+      maxCount = modeMap[el];
+    }
+  }
+  return modes;
+};
+
+//---Quiz: 6 pytań
+
+const Quiz = () => {
+  const [state1, setState1] = useState(null);
+  const [state2, setState2] = useState(null);
+  const [state3, setState3] = useState(null);
+  const [state4, setState4] = useState(null);
+  const [state5, setState5] = useState(null);
+  const [state6, setState6] = useState(null);
 
   const handleChange1 = (e) => {
     setState1(e.target.value);
@@ -98,50 +124,55 @@ const Quiz = () => {
     setState6(e.target.value);
   };
 
+  const [stateFinal, setStateFinal] = useState([]);
+
   const handleClick = () => {
     const result = [state1, state2, state3, state4, state5, state6];
-    console.log(result)
-  }
+    console.log(result);
+    let final = modeArray(result);
+    setStateFinal(final);
+    console.log(final);
+  };
 
-  return <div>
-    <Question num={1} handleChange={handleChange1}/>
-    <Question num={2} handleChange={handleChange2}/>
-    <Question num={3} handleChange={handleChange3}/>
-    <Question num={4} handleChange={handleChange4}/>
-    <Question num={5} handleChange={handleChange5}/>
-    <Question num={6} handleChange={handleChange6}/>
-    
-    <button onClick={handleClick}>Sprawdź wynik</button>
+  if (stateFinal.length === 0) {
+    return (
+      <div>
+        <Question num={1} handleChange={handleChange1} />
+        <Question num={2} handleChange={handleChange2} />
+        <Question num={3} handleChange={handleChange3} />
+        <Question num={4} handleChange={handleChange4} />
+        <Question num={5} handleChange={handleChange5} />
+        <Question num={6} handleChange={handleChange6} />
 
-    </div>
+        <button onClick={handleClick}>Sprawdź wynik</button>
+      </div>
+    );
+  } else if (stateFinal.length === 1) {
+    return (
+      <>
+        <h1>Masz sylwetkę typu: {stateFinal.map((el) => el)} </h1>
+        <Link to={"/figure_types"}>
+          <button>Opis typów sylwetek</button>
+        </Link>
+      </>
+    );
+  } else
+    return (
+      <>
+        <h1>Masz cechy kilku typów sylwetek. Są to:</h1>
+        <ul>
+          {stateFinal.map((el) => (
+            <li>{`sylwetka ${el}`}</li>
+          ))}
+        </ul>
+        <Link to={"/figure_types"}>
+          <button>Opis typów sylwetek</button>
+        </Link>
+      </>
+    );
 };
+
+//Wyświetlanie opisu twoich sylwetek
+//Wyświetlanie linku do wszystkich opisów
 
 export default Quiz;
-
-// Jak dostać najczęstszy wynik z arraya result?
-//skopiować []...result]
-//mode(result)
-//jeszcze raz mode(result) dla tego co pozostało
-//porównać długości czy nie ta sama i pop wynik z dłuższej albo z obu
-//dalej renderować komponent lub komunikat i dwa komponenty
-
-//---------------TEST KODU:
-
-// function mode(arr){
-//   return arr.sort((a,b) =>
-//         arr.filter(v => v===a).length
-//       - arr.filter(v => v===b).length
-//   ).pop();
-// };
-
-function mode(arr){
-  return arr.sort((a,b) =>
-        arr.filter(v => v===a).length
-      - arr.filter(v => v===b).length
-  )
-};
-
-const testArr = ["X", "X", "O", "O", "Y"];
-
-console.log(mode(testArr))
-console.log(mode(testArr))
