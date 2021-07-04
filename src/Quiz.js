@@ -96,27 +96,28 @@ const Quiz = () => {
       </div>
     );
   } else if (stateFinal.length === 1) {
-
     return (
       <>
         <h1>Masz sylwetkę typu: {stateFinal.map((el) => el)} </h1>
 
-        {FTdata.map(function(el) {
+        {FTdata.map(function (el) {
           if (el.id === stateFinal[0])
-          return <article id={el.id} key={el.id}>
-            <h2>Sylwetka {el.name}</h2>
-            <p>{el.description}</p>
-            <img src={el.img} alt={el.alt}></img>
-            <ul>
-              {el.tips_arr.map((el, index) => (
-                <li key={index}>{el}</li>
-              ))}
-            </ul>
-          </article>
+            return (
+              <article id={el.id} key={el.id}>
+                <h2>Sylwetka {el.name}</h2>
+                <p>{el.description}</p>
+                <img src={el.img} alt={el.alt}></img>
+                <ul>
+                  {el.tips_arr.map((el, index) => (
+                    <li key={index}>{el}</li>
+                  ))}
+                </ul>
+              </article>
+            );
         })}
 
         <Link to={"/figure_types"}>
-          <button>Opis wszystkich sylwetek</button>
+          <button>Zobacz wszystkie sylwetki</button>
         </Link>
       </>
     );
@@ -129,15 +130,33 @@ const Quiz = () => {
             <li>{`sylwetka ${el}`}</li>
           ))}
         </ul>
-        {/* Opis tych sylwetek */}
+
+        {stateFinal.map(function (type) {
+          return FTdata.map(function (el) {
+            if (type === el.id)
+              return (
+                <article id={el.id} key={el.id}>
+                  <h2>Sylwetka {el.name}</h2>
+                  <p>{el.description}</p>
+                  <img src={el.img} alt={el.alt}></img>
+                  <ul>
+                    {el.tips_arr.map((el, index) => (
+                      <li key={index}>{el}</li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            else {
+              return null;
+            }
+          });
+        })}
+
         <Link to={"/figure_types"}>
-          <button>Opis wszystkich sylwetek</button>
+          <button>Zobacz wszystkie sylwetki</button>
         </Link>
       </>
     );
 };
-
-//Wyświetlanie opisu twoich sylwetek
-//Wyświetlanie linku do wszystkich opisów
 
 export default Quiz;
