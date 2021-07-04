@@ -2,22 +2,10 @@ import React from "react";
 import "./App.scss";
 import { useState, useEffect } from "react";
 
+
 const FTypes = () => {
-  return (
-    <>
-      <h1>Opis wszystkich typów sylwetek</h1>
-      <div>
-        <FTypeGenerator />
-      </div>
-    </>
-  );
-};
 
-export default FTypes;
-
-const FTypeGenerator = () => {
-
-  const [FTArr, setFTArr] = useState([]);
+  const [FTdata, setFTdata] = useState([]);
 
   useEffect(() => {
     fetch(`./db.json`)
@@ -25,12 +13,12 @@ const FTypeGenerator = () => {
         if (resp.ok) return resp.json();
         else throw new Error("Błąd");
       })
-      .then((data) => setFTArr(data.figure_types));
+      .then((data) => setFTdata(data.figure_types));
   }, []);
 
-  console.log(FTArr)
+  console.log(FTdata)
 
-  return FTArr.map(el => <article key={el.id}>
+  return FTdata.map(el => <article id={el.id} key={el.id}>
       <h2>Sylwetka {el.name}</h2>
       <p>{el.description}</p>
       <img src={el.img} alt={el.alt}></img>
@@ -38,3 +26,5 @@ const FTypeGenerator = () => {
     </article>)
   
 };
+
+export default FTypes;

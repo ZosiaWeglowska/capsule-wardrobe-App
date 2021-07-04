@@ -1,14 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { Link } from "react-router-dom";
 import Question from "./Question";
-
-// zbudować obiekt z treściami do tworzenia pytań,
-// sprawić, żeby działał
-// w przyszłości przenieść go na json serwer
-//co jeśli równa ilość odpowiedzi?
-//generator inputa i labela
-
 
 //---funkcja do obsługi wyników quizu
 
@@ -37,7 +30,7 @@ const modeArray = (array) => {
   return modes;
 };
 
-//---Quiz: 6 pytań
+//---Quiz: 6 pytań i obsługa wyświetlania wyników
 
 const Quiz = () => {
   const [state1, setState1] = useState(null);
@@ -68,13 +61,26 @@ const Quiz = () => {
 
   const [stateFinal, setStateFinal] = useState([]);
 
+  const [FTdata, setFTdata] = useState([]);
+
   const handleClick = () => {
     const result = [state1, state2, state3, state4, state5, state6];
+    // usunąć
     console.log(result);
     let final = modeArray(result);
     setStateFinal(final);
+    //usunąć
     console.log(final);
   };
+
+  useEffect(() => {
+    fetch(`./db.json`)
+      .then((resp) => {
+        if (resp.ok) return resp.json();
+        else throw new Error("Error in data");
+      })
+      .then((data) => setFTdata(data.figure_types));
+  }, []);
 
   if (stateFinal.length === 0) {
     return (
@@ -90,11 +96,27 @@ const Quiz = () => {
       </div>
     );
   } else if (stateFinal.length === 1) {
+
     return (
       <>
         <h1>Masz sylwetkę typu: {stateFinal.map((el) => el)} </h1>
+
+        {FTdata.map(function(el) {
+          if (el.id === stateFinal[0])
+          return <article id={el.id} key={el.id}>
+            <h2>Sylwetka {el.name}</h2>
+            <p>{el.description}</p>
+            <img src={el.img} alt={el.alt}></img>
+            <ul>
+              {el.tips_arr.map((el, index) => (
+                <li key={index}>{el}</li>
+              ))}
+            </ul>
+          </article>
+        })}
+
         <Link to={"/figure_types"}>
-          <button>Opis typów sylwetek</button>
+          <button>Opis wszystkich sylwetek</button>
         </Link>
       </>
     );
@@ -107,8 +129,9 @@ const Quiz = () => {
             <li>{`sylwetka ${el}`}</li>
           ))}
         </ul>
+        {/* Opis tych sylwetek */}
         <Link to={"/figure_types"}>
-          <button>Opis typów sylwetek</button>
+          <button>Opis wszystkich sylwetek</button>
         </Link>
       </>
     );

@@ -1,7 +1,7 @@
 {
   "figure_types": [
     {
-      "id": "picture_x",
+      "id": "X",
       "name": "X",
       "description": "Lorem ipsum...",
       "img": "#",
@@ -9,7 +9,7 @@
       "tips_arr": ["tip1", "tip2", "tip3"]
     },
     {
-      "id": "picture_o",
+      "id": "O",
       "name": "O",
       "description": "Lorem ipsum...",
       "img": "#",
@@ -17,7 +17,7 @@
       "tips_arr": ["tip1", "tip2", "tip3"]
     },
     {
-      "id": "picture_a",
+      "id": "A",
       "name": "A",
       "description": "Lorem ipsum...",
       "img": "#",
@@ -25,7 +25,7 @@
       "tips_arr": ["tip1", "tip2", "tip3"]
     },
     {
-      "id": "picture_t",
+      "id": "T",
       "name": "T",
       "description": "Lorem ipsum...",
       "img": "#",
@@ -33,7 +33,7 @@
       "tips_arr": ["tip1", "tip2", "tip3"]
     },
     {
-      "id": "picture_h",
+      "id": "H",
       "name": "H",
       "description": "Lorem ipsum...",
       "img": "#",
