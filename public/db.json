@@ -1,0 +1,44 @@
+{
+  "figure_types": [
+    {
+      "id": "picture_x",
+      "name": "X",
+      "description": "Lorem ipsum...",
+      "img": "#",
+      "alt": "Grafika sylwetka X",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    },
+    {
+      "id": "picture_o",
+      "name": "O",
+      "description": "Lorem ipsum...",
+      "img": "#",
+      "alt": "Grafika sylwetka O",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    },
+    {
+      "id": "picture_a",
+      "name": "A",
+      "description": "Lorem ipsum...",
+      "img": "#",
+      "alt": "Grafika sylwetka A",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    },
+    {
+      "id": "picture_t",
+      "name": "T",
+      "description": "Lorem ipsum...",
+      "img": "#",
+      "alt": "Grafika sylwetka T",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    },
+    {
+      "id": "picture_h",
+      "name": "H",
+      "description": "Lorem ipsum...",
+      "img": "#",
+      "alt": "Grafika sylwetka H",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    }
+  ]
+}
