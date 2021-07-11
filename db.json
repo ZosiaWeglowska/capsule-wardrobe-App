@@ -1,0 +1,73 @@
+{
+  "figure_types": [
+    {
+      "id": "X",
+      "name": "X",
+      "description": "Lorem ipsum...",
+      "img": "imgX",
+      "position": "0 0",
+      "alt": "Grafika sylwetka X",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    },
+    {
+      "id": "O",
+      "name": "O",
+      "description": "Lorem ipsum...",
+      "img": "imgO",
+      "alt": "Grafika sylwetka O",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    },
+    {
+      "id": "A",
+      "name": "A",
+      "description": "Lorem ipsum...",
+      "img": "imgA",
+      "alt": "Grafika sylwetka A",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    },
+    {
+      "id": "T",
+      "name": "T",
+      "description": "Lorem ipsum...",
+      "img": "imgT",
+      "alt": "Grafika sylwetka T",
+      "tips_arr": ["tip1", "tip2", "tip3"]
+    },
+    {
+      "id": "H",
+      "name": "H",
+      "description": "Lorem ipsum...",
+      "img": "img",
+      "alt": "Grafika sylwetka H",
+      "tips_arr": ["Testing bullet points with the ::before pseudo-element. This is a long line of text that should wrap on to the second line and demonstrate text alignment", "tip2", "tip3"]
+    }
+  ],
+
+  "questions": [
+    { "nr": 1,
+      "question": "Treść pytania 1",
+      "options": [{"value": "X", "answear": "ans 1.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+    },
+    { "nr": 2,
+      "question": "Treść pytania 2",
+      "options": [{"value": "X", "answear": "ans 2.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+    },
+    { "nr": 3,
+      "question": "Treść pytania 3",
+      "options": [{"value": "X", "answear": "ans 3.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+    },
+    { "nr": 4,
+      "question": "Treść pytania 4",
+      "options": [{"value": "X", "answear": "ans 4.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+    },
+    { "nr": 5,
+      "question": "Treść pytania 5",
+      "options": [{"value": "X", "answear": "ans 5.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+    },
+    { "nr": 6,
+      "question": "Treść pytania 6",
+      "options": [{"value": "X", "answear": "ans 6.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+    }
+
+  ]
+}

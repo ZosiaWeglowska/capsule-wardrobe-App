@@ -1,20 +1,228 @@
-.App {
-  text-align: center;
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-// nav {
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-//   min-width: 10vh;
-//   background: lavender;
-// }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
 
-// .nav-links {
-//   width: 40%;
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-//   list-style: none;
-//   cursor: pointer;
-// }
+:root {
+    font-family: 'Open Sans', sans-serif;
+}
+
+$accentColor: #E91E63;
+$secondColor: #211ee9;
+$gradientIntro: linear-gradient(to right, $accentColor, white, $accentColor);
+$gradientColor1: skyblue;
+$gradientColor2: hotpink;
+$textColor: black; 
+
+
+@mixin border-gradient($from, $to, $weight: 0) {
+    $mix-main: mix($from, $to);
+    $mix-sub-from: mix($mix-main, $from);
+    $mix-sub-to: mix($mix-main, $to);
+    
+    box-shadow: 0 1px 0 $weight rgba($mix-sub-to, .25),
+                0 -1px 0 $weight rgba($mix-sub-from, .25),
+                1px 0 0 $weight rgba($mix-sub-to, .25),
+                -1px 0 0 $weight  rgba($mix-sub-from, .25),
+                1px -1px 0 $weight rgba($mix-main, .5),
+                -1px 1px 0 $weight rgba($mix-main, .5),
+                1px 1px 0 $weight rgba($to, .75),
+                -1px -1px 0 $weight rgba($from, .75);
+  }
+
+// ------------------ Nav i strona startowa
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+
+    .logo {
+        margin: 0.5rem
+    }
+
+    .intro_header {
+        font-size: 2rem;
+        background: $gradientIntro;
+        background-size: 200%;
+        background-clip: text;
+        background-position: left;
+        color: transparent;
+        margin: 0.5rem;
+        padding: 0;
+      
+        animation: animate 3s linear;
+    }
+
+    .btn {
+        border: none;
+        padding: 1rem 2rem;
+        margin: 15px;
+        text-align: center;
+        font-size: 1rem;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $textColor;
+        @include border-gradient($accentColor, $secondColor, 2px);
+    }
+
+    a {
+        text-decoration: none;
+        color: $textColor;
+    }
+}
+
+@keyframes animate {
+    to {
+      background-position: right;
+    }
+  }
+
+  //--------------Quiz
+
+  .container {
+
+      .container_question {
+        width: 100vw;
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            font-size: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .container_answears {
+            display: flex;
+            flex-direction: column;
+
+            .container_answear {
+                padding: 0.25rem
+            }
+        }
+
+      }
+  }
+
+  .container_answear {
+    .radio {
+        color: $textColor;
+    }
+    
+    .radio input {
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        width: 0;
+      }
+    
+    .radio input:checked + span {
+        background-color: $accentColor;
+      }
+      
+
+    .radio span {
+        display: inline-block;
+        height: 0.75rem;
+        width: 0.75rem;
+        border-radius: 50%;
+        border: none;
+        margin-right: 10px;
+        @include border-gradient($gradientColor1, $gradientColor2);
+      }
+  }
+  //-----------------Opisy figur
+
+  .container {
+      .container_type {
+          margin: 2rem;
+        //   border: 1px solid black;
+          color: $textColor;
+
+          h2 {
+              font-weight: 700;
+              margin-bottom: 0.5rem;
+          }
+
+          .description{
+              margin: 1rem
+          }
+          
+          .tip {
+              position: relative;
+              margin: 0.5rem;
+          }
+          .tip::before {
+              content: "";
+              position: absolute;
+              left: -1rem;
+              top: 0.25rem;
+              display: block;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background-color: $accentColor;
+          }
+
+      }
+  }

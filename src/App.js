@@ -1,3 +1,8 @@
+
+// json-server --watch db.json
+// json-server -p 3001 db.json
+
+
 import React from "react";
 import "./App.scss";
 import Nav from "./Nav";
@@ -11,7 +16,7 @@ function App() {
   return (
     <Router>
     <div>
-      <Route path="/nav" component={Nav}/>
+      <Route path="/" exact component={Nav}/>
       <Route path="/figure_types" component={FTypes}/>
       <Route path="/quiz" component={Quiz}/>
     </div>

@@ -1,33 +1,36 @@
 import React, { useState, useEffect } from "react";
-import "./App.scss";
+import "./Quiz.scss";
 import { Link } from "react-router-dom";
 import Question from "./Question";
+import X from "./images/X.png";
 
-//---funkcja do obsługi wyników quizu
+//---funkcja do obsługi wyników quizu.
+// Zwraca tablicę najczęstszych wartości lub null (kiedy tablica wszystkich wartości jest niepełna).
 
 const modeArray = (array) => {
   const array2 = array.filter((element) => element != null);
-  if (array2.length < 5) return alert("Uzupełnij wszystkie odpowiedzi");
+  if (array2.length < 6) return null;
+  else {
+    let modeMap = {},
+      maxCount = 1,
+      modes = [];
 
-  let modeMap = {},
-    maxCount = 1,
-    modes = [];
+    for (let i = 0; i < array.length; i++) {
+      let el = array[i];
 
-  for (let i = 0; i < array.length; i++) {
-    let el = array[i];
+      if (modeMap[el] == null) modeMap[el] = 1;
+      else modeMap[el]++;
 
-    if (modeMap[el] == null) modeMap[el] = 1;
-    else modeMap[el]++;
-
-    if (modeMap[el] > maxCount) {
-      modes = [el];
-      maxCount = modeMap[el];
-    } else if (modeMap[el] === maxCount) {
-      modes.push(el);
-      maxCount = modeMap[el];
+      if (modeMap[el] > maxCount) {
+        modes = [el];
+        maxCount = modeMap[el];
+      } else if (modeMap[el] === maxCount) {
+        modes.push(el);
+        maxCount = modeMap[el];
+      }
     }
+    return modes;
   }
-  return modes;
 };
 
 //---Quiz: 6 pytań i obsługa wyświetlania wyników
@@ -39,6 +42,11 @@ const Quiz = () => {
   const [state4, setState4] = useState(null);
   const [state5, setState5] = useState(null);
   const [state6, setState6] = useState(null);
+
+  const [stateFinal, setStateFinal] = useState([]);
+
+  const [FTdata, setFTdata] = useState([]);
+  const [Qdata, setQdata] = useState([]);
 
   const handleChange1 = (e) => {
     setState1(e.target.value);
@@ -59,32 +67,54 @@ const Quiz = () => {
     setState6(e.target.value);
   };
 
-  const [stateFinal, setStateFinal] = useState([]);
-
-  const [FTdata, setFTdata] = useState([]);
-
   const handleClick = () => {
     const result = [state1, state2, state3, state4, state5, state6];
-    // usunąć
-    console.log(result);
     let final = modeArray(result);
-    setStateFinal(final);
-    //usunąć
-    console.log(final);
+    if (final === null) alert("Odpowiedz na wszystkie pytania");
+    else setStateFinal(final);
   };
 
   useEffect(() => {
-    fetch(`./db.json`)
+    fetch(`http://localhost:3001/figure_types`)
       .then((resp) => {
         if (resp.ok) return resp.json();
         else throw new Error("Error in data");
       })
-      .then((data) => setFTdata(data.figure_types));
+      .then((data) => setFTdata(data));
+
+    fetch(`http://localhost:3001/questions`)
+      .then((resp) => {
+        if (resp.ok) return resp.json();
+        else throw new Error("Error in data");
+      })
+      .then((data) => setQdata(data));
   }, []);
 
+  // useEffect(() => {
+  //   fetch(`http://localhost:3001/figure_types`)
+  //     .then((resp) => {
+  //       if (resp.ok) return resp.json();
+  //       else throw new Error("Error in data");
+  //     })
+  //     .then((data) => setFTdata(data));
+  // }, []);
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:3001/questions`)
+  //     .then((resp) => {
+  //       if (resp.ok) return resp.json();
+  //       else throw new Error("Error in data");
+  //     })
+  //     .then((data) => setQdata(data));
+  // }, []);
+
   if (stateFinal.length === 0) {
+    // Czasem robi console loga, a czasem nie
+    //????????????????????????????????????????????
+    // console.log(Qdata[0].options);
+
     return (
-      <div>
+      <div className="container">
         <Question num={1} handleChange={handleChange1} />
         <Question num={2} handleChange={handleChange2} />
         <Question num={3} handleChange={handleChange3} />
@@ -92,38 +122,45 @@ const Quiz = () => {
         <Question num={5} handleChange={handleChange5} />
         <Question num={6} handleChange={handleChange6} />
 
-        <button onClick={handleClick}>Sprawdź wynik</button>
+        <button className="btn" onClick={handleClick}>
+          Sprawdź wynik
+        </button>
       </div>
     );
   } else if (stateFinal.length === 1) {
     return (
-      <>
+      <div className="container">
         <h1>Masz sylwetkę typu: {stateFinal.map((el) => el)} </h1>
 
         {FTdata.map(function (el) {
           if (el.id === stateFinal[0])
             return (
-              <article id={el.id} key={el.id}>
+              <article className="container_type" id={el.id} key={el.id}>
                 <h2>Sylwetka {el.name}</h2>
-                <p>{el.description}</p>
-                <img src={el.img} alt={el.alt}></img>
-                <ul>
+
+                <img src={X} width="100px" alt={el.alt}></img>
+                <p className="description">{el.description}</p>
+
+                <ul className="tips">
                   {el.tips_arr.map((el, index) => (
-                    <li key={index}>{el}</li>
+                    <li className="tip" key={index}>
+                      {el}
+                    </li>
                   ))}
                 </ul>
               </article>
             );
+          else return null;
         })}
 
         <Link to={"/figure_types"}>
-          <button>Zobacz wszystkie sylwetki</button>
+          <button className="btn">Zobacz wszystkie sylwetki</button>
         </Link>
-      </>
+      </div>
     );
   } else
     return (
-      <>
+      <div className="container">
         <h1>Masz cechy kilku typów sylwetek. Są to:</h1>
         <ul>
           {stateFinal.map((el) => (
@@ -135,13 +172,17 @@ const Quiz = () => {
           return FTdata.map(function (el) {
             if (type === el.id)
               return (
-                <article id={el.id} key={el.id}>
+                <article className="container_type" id={el.id} key={el.id}>
                   <h2>Sylwetka {el.name}</h2>
-                  <p>{el.description}</p>
-                  <img src={el.img} alt={el.alt}></img>
-                  <ul>
+
+                  <img src={X} width="100px" alt={el.alt}></img>
+                  <p className="description">{el.description}</p>
+
+                  <ul className="tips">
                     {el.tips_arr.map((el, index) => (
-                      <li key={index}>{el}</li>
+                      <li className="tip" key={index}>
+                        {el}
+                      </li>
                     ))}
                   </ul>
                 </article>
@@ -153,9 +194,9 @@ const Quiz = () => {
         })}
 
         <Link to={"/figure_types"}>
-          <button>Zobacz wszystkie sylwetki</button>
+          <button className="btn">Zobacz wszystkie sylwetki</button>
         </Link>
-      </>
+      </div>
     );
 };
 
