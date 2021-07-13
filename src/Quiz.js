@@ -75,14 +75,14 @@ const Quiz = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/figure_types`)
+    fetch(`http://localhost:3003/figure_types`)
       .then((resp) => {
         if (resp.ok) return resp.json();
         else throw new Error("Error in data");
       })
       .then((data) => setFTdata(data));
 
-    fetch(`http://localhost:3001/questions`)
+    fetch(`http://localhost:3003/questions`)
       .then((resp) => {
         if (resp.ok) return resp.json();
         else throw new Error("Error in data");
@@ -108,10 +108,14 @@ const Quiz = () => {
   //     .then((data) => setQdata(data));
   // }, []);
 
+ 
+
   if (stateFinal.length === 0) {
+
+    // console.log(Qdata[0].options);
     // Czasem robi console loga, a czasem nie
     //????????????????????????????????????????????
-    // console.log(Qdata[0].options);
+    
 
     return (
       <div className="container">

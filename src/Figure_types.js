@@ -2,13 +2,14 @@ import React from "react";
 import "./Figure_types.scss";
 import { useState, useEffect } from "react";
 import sprite from "./images/sprite.png";
-import X from "./images/X.png";
+import X from "./images/X.png"
+//------????????????????????????????????????
 
 const FTypes = () => {
   const [FTdata, setFTdata] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/figure_types`)
+    fetch(`http://localhost:3003/figure_types`)
       .then((resp) => {
         if (resp.ok) return resp.json();
         else throw new Error("Błąd");
@@ -21,8 +22,9 @@ const FTypes = () => {
       {FTdata.map((el) => (
         <article className="container_type" id={el.id} key={el.id}>
           <h2>Sylwetka {el.name}</h2>
+          <div className="img"></div>
 
-          <img src={X} width="100px" alt={el.alt}></img>
+          {/* <img src={X} width="100px" alt={el.alt}></img> */}
           <p className="description">{el.description}</p>
 
           <ul className="tips">

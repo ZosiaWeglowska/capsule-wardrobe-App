@@ -3,70 +3,96 @@
     {
       "id": "X",
       "name": "X",
-      "description": "Lorem ipsum...",
+      "description": "Twoja talia jest o 25% mniejsza niż obwód w biuście i biodrach, zaś obwód Twojego biustu i ramion różni się od siebie nie więcej niż o 5%. Masz okrągły biust, biodra i pełne uda. Jesteś chwalona za talię i kobiece kształy. Klepsydry zazwyczaj mają krótkie i wysokie talie oraz lekko wystajacy brzuszek.",
       "img": "imgX",
       "position": "0 0",
       "alt": "Grafika sylwetka X",
-      "tips_arr": ["tip1", "tip2", "tip3"]
+      "tips_arr": [
+        "Spódnice: ołówkowe; tulipan; o linii A; cięte z koła",
+        "Sukienki: o linii A z paskiem; dopasowane ze szwami naśladującymi linię ciała; odcinane w talii.",
+        "Bluzki, swetry: kopertowe za linię bioder; taliowane koszule; bluzki bez rękawów o szerokich ramiączkach; kardigany",
+        "Spodnie: proste; boot cut; wysoki lub średni stan; rurki",
+        "Kurtki i płaszcze: trencze podkreślające linię ramion, z paskiem w talii, o linii A; płaszcze typu żakiet"]
     },
     {
       "id": "O",
       "name": "O",
-      "description": "Lorem ipsum...",
+      "description": "Obwód Twojego brzucha jest co najwyżej o 5% mniejszy niż bioder, a Twoje biodra są takie same lub węższe niż ramiona. Gdy tyjesz, najpierw powiększa się brzuch, a dopiero potem biodra, ramiona i ewentualnie górna część ud. Masz płaską pupę, krótką szyję i nogi, za które zbierasz komplementy. Twoj atalia jest krótka i wysoka, biust średni lub duży.",
       "img": "imgO",
       "alt": "Grafika sylwetka O",
-      "tips_arr": ["tip1", "tip2", "tip3"]
+      "tips_arr": [
+        "Spódnice: proste; ołówkowe; lekko rozkloszowane; z szerokim pasem na brzuchu; długość do kolan lub dłuższe mini",
+        "Sukienki: kopertowe; szmizjerki do kolan wiązane w talii; typu t-shirt; z obniżonym stanem",
+        "Bluzki, swetry: odcinane pod biustem; z podwyższoną talią; swetry bez kołnierza, do połowy uda, rozpinane; kamizelki",
+        "Spodnie: wąskie, dopasowane, proste do naturalnej, niskiej talii; zapinane z boku",
+        "Kurtki i płaszcze: krój prosty; krój szlafroka z płaszczem w talii; krój marynarski; dwurzędówki wiązane w pasie"]
     },
     {
       "id": "A",
       "name": "A",
-      "description": "Lorem ipsum...",
+      "description": "Obwód Twoich bioder jest o ponad 10% większy niż obwód biustu. Masz pełne uda i masywne w stosunku do reszty sylwetki nogi. Poza tym wąskie ramiona, średni lub drobny biust i talię, za którą zbierasz najwięcej komplementów. Twoja talia zazwyczaj jest długa.",
       "img": "imgA",
       "alt": "Grafika sylwetka A",
-      "tips_arr": ["tip1", "tip2", "tip3"]
+      "tips_arr": [
+        "Spódnice: o linii A; ołówkowe proste lub trapezowe z bocznymi rozcięciami; rozkloszowane, z koła; bez paska lub z wąskim paskiem ", 
+        "Sukienki: kopertowe; princeski; bez ramiączek; gorsetowe", 
+        "Bluzki, swetry: rękawy bardzo krótkie; długość do kości biodrowej; podkreślające ramiona epolety, pagony, skrzydełka, bufki",
+        "Spodnie: do niskiej talii, gładki przód; proste lub lekko rozszerzone nogawki; kieszenie z tyłu wszyte blisko siebie",  
+        "Kurtki i płaszcze: z szerokim paskiem, do połowy bioder; płaszcz bez guzików, wiązany w talii, z szerszym kołnierzem"]
     },
     {
       "id": "T",
       "name": "T",
-      "description": "Lorem ipsum...",
+      "description": "Sylwetka T i V różnią się wielkością biustu. T ma drobny biust, zaś V pełny. Obwód Twoich ramion w przypadku sylwetki T lub biustu w przypadku sylwetki V jest o około 10% większy niż obwód bioder. Właścicielki obu są podiziwiane za wąskie biodra i zgrabne, posągowe nogi. Talia zarówno u T, jak i V, jest lekko zarysowana.",
       "img": "imgT",
       "alt": "Grafika sylwetka T",
-      "tips_arr": ["tip1", "tip2", "tip3"]
+      "tips_arr": [
+        "Spódnice: tulipan, z koła, plisowane, kopertowe, o linii A, bombki",
+        "Sukienki: gorsetowe, o linii A, empirowe, kopertowe",
+        "Spodnie: biodrówki; skośne lub naszyte kieszenie; chino; haremki; bojówki", 
+        "Bluzki, swetry: rękawy minimum do łokcia; sweterki o wysokim stanie; szerokie ramiączka",
+        "Kurtki i płaszcze: długość 3/4, szwy działowe; linia A, odcinane pod biustem, z kieszeniami; trencze bez zdobień"
+    ]
     },
     {
       "id": "H",
       "name": "H",
-      "description": "Lorem ipsum...",
+      "description": "Sylwetka H lub I. Różnica w obwodzie ramion, biustu, bioder i talii nie przekracza 20%. H i I różnią się masą. H ma pełniejszą sylwetkę, I jest szczupłe o figurze chłopięcej. Gdy przybierasz na wadze, to wszędzie po równo. Obydwie sylwetki zbierają komplementy za świetne proporcje.",
       "img": "img",
       "alt": "Grafika sylwetka H",
-      "tips_arr": ["Testing bullet points with the ::before pseudo-element. This is a long line of text that should wrap on to the second line and demonstrate text alignment", "tip2", "tip3"]
+      "tips_arr": [
+        "Spódnice: z półkola; kloszowe; o linii A; plisowane; tulipany; sarong", 
+        "Sukienki: koperotwe; empirowe do kolan; o obniżonym stanie; asymetryczny dół", 
+        "Spodnie: proste nogawki; skośne kieszenie; obniżony stan; szeroki pasek; szorty; bermudy",
+        "Bluzki, swetry: koperotwe, taliowane, drapowane; rękawy 3/4 z widoczym nadgarstkiem; typu camisole", 
+        "Kurtki i płaszcze: odcinane pod biustem, krótkie/do kolan; z paskiem"]
     }
   ],
 
   "questions": [
     { "nr": 1,
-      "question": "Treść pytania 1",
-      "options": [{"value": "X", "answear": "ans 1.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+      "question": "Twoim atutem są:",
+      "options": [{"value": "X", "answear": "Kobiece kształty biustu, talii, bioder"}, {"value": "O", "answear": "Kształtne nogi"}, {"value": "A", "answear": "Szczupła talia i ramiona"}, {"value": "T", "answear": "Wąskie biodra i zgrabne nogi, proporcje modelki"}, {"value": "H", "answear": "Proporcje sylwetki, jeśli tyjesz to równomiernie"}]
     },
     { "nr": 2,
-      "question": "Treść pytania 2",
-      "options": [{"value": "X", "answear": "ans 2.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+      "question": "Mankamenty Twojej sylwetki:",
+      "options": [{"value": "X", "answear": "Jeśli nie podkreślisz talii, sylwetka wygląda masywnie"}, {"value": "O", "answear": "Gdy tyjesz, najpierw powiększa się brzuch, płaska pupa"}, {"value": "A", "answear": "Pełne uda i masywne nogi w stosunku do sylwetki"}, {"value": "T", "answear": "Zbyt szerokie ramiona, męska sylwetka"}, {"value": "H", "answear": "Brak wcięcia w talii"}]
     },
     { "nr": 3,
-      "question": "Treść pytania 3",
-      "options": [{"value": "X", "answear": "ans 3.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+      "question": "Linie łączące biodro z ramieniem po prawej i lewej stronie sylwetki byłyby:",
+      "options": [{"value": "X", "answear": "Równoległe, widać wyraźne wcięcie w talii"}, {"value": "O", "answear": "Równoległe lub zwężające się ku dołowi, bez talii, z widocznym brzuszkiem"}, {"value": "A", "answear": "Rozszerzające się ku dołowi, z wyraźną talią"}, {"value": "T", "answear": "Zwężające się ku dołowi, z lekko zarysowaną talią"}, {"value": "H", "answear": "Równoległe, bez wyraźnej talii"}]
     },
     { "nr": 4,
-      "question": "Treść pytania 4",
-      "options": [{"value": "X", "answear": "ans 4.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+      "question": "Procentowo:",
+      "options": [{"value": "X", "answear": "Twoja talia jest o 25% mniejsza niż obwód w biuście i biodrach"}, {"value": "O", "answear": "Obwód Twojego brzucha jest co najwyżej o 5% mniejszy niż bioder"}, {"value": "A", "answear": "Obwód Twoich bioder jest o ponad 10% większy niż obwód biustu"}, {"value": "T", "answear": "Obwód Twoich ramion (lub biustu - jeśli masz duży biust) jest o ok 10% większy niż obwód bioder"}, {"value": "H", "answear": "Różnica w obwodzie ramion, biustu, bioder i talii nie przekracza 20%"}]
     },
     { "nr": 5,
-      "question": "Treść pytania 5",
-      "options": [{"value": "X", "answear": "ans 5.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+      "question": "Kiedy kupujesz dżinsy:",
+      "options": [{"value": "X", "answear": "Pasują w biodrach, ale są zbyt luźne w talii"}, {"value": "O", "answear": "Nie dopinają się na brzuchu, ale są lużne w biodrach albo na pośladkach"}, {"value": "A", "answear": "Są zbyt opięte na udach a za luźne w talii. Pupa wydaje się za duża"}, {"value": "T", "answear": "Pasuje na Ciebie większość modeli"}, {"value": "H", "answear": "Na biodrach i pośladkach pasują, ale są często przyciasne w talii"}]
     },
     { "nr": 6,
-      "question": "Treść pytania 6",
-      "options": [{"value": "X", "answear": "ans 6.X"}, {"value": "O", "answear": "ans 1.O"}, {"value": "A", "answear": "ans 1.A"}, {"value": "T", "answear": "ans 1.T"}, {"value": "H", "answear": "ans 1.H"}]
+      "question": "Do Twojej figury pasuje opis:",
+      "options": [{"value": "X", "answear": "Okrągłe biodra, pełne uda i biust"}, {"value": "O", "answear": "Szczupłe nogi, płaska pupa, okrągły brzuszek"}, {"value": "A", "answear": "Szczupłe ramiona, wąska talia, pełne biodra i uda"}, {"value": "T", "answear": "Wyraźnie zarysowane ramiona, zwęża się ku dołowi, szczupłe biodra"}, {"value": "H", "answear": "Proporcjonalna sylwetka bez wyraźnej talii"}]
     }
 
   ]
