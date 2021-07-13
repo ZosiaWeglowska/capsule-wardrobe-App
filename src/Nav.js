@@ -20,7 +20,7 @@ function Nav() {
       <div className="container">
         <div className="intro_wraper">
           <div className="logo">
-            <img src={logo} width="60px" />
+            <img src={logo} alt="logo" width="60px" />
           </div>
           <h1 className="intro_header">Capsule wardrobe</h1>
           <h2 className="intro_header">shape</h2>

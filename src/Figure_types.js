@@ -1,8 +1,9 @@
 import React from "react";
-import "./Figure_types.scss";
+import "./App.scss";
+// import "./Figure_types.scss";
 import { useState, useEffect } from "react";
-import sprite from "./images/sprite.png";
-import X from "./images/X.png"
+// import sprite from "./images/sprite.png";
+// import X from "./images/X.png"
 //------????????????????????????????????????
 
 const FTypes = () => {
@@ -24,13 +25,14 @@ const FTypes = () => {
           <h2>Sylwetka {el.name}</h2>
           <div className="img"></div>
 
-          {/* <img src={X} width="100px" alt={el.alt}></img> */}
+          <img src={el.src} width="300px" alt={el.alt}></img>
           <p className="description">{el.description}</p>
 
           <ul className="tips">
             {el.tips_arr.map((el, index) => (
               <li className="tip" key={index}>
                 {el}
+          <p className="description">{el.description}</p>
               </li>
             ))}
           </ul>

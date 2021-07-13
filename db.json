@@ -4,7 +4,7 @@
       "id": "X",
       "name": "X",
       "description": "Twoja talia jest o 25% mniejsza niż obwód w biuście i biodrach, zaś obwód Twojego biustu i ramion różni się od siebie nie więcej niż o 5%. Masz okrągły biust, biodra i pełne uda. Jesteś chwalona za talię i kobiece kształy. Klepsydry zazwyczaj mają krótkie i wysokie talie oraz lekko wystajacy brzuszek.",
-      "img": "imgX",
+      "src": "http://localhost:3000/images/X.png",
       "position": "0 0",
       "alt": "Grafika sylwetka X",
       "tips_arr": [
@@ -18,7 +18,7 @@
       "id": "O",
       "name": "O",
       "description": "Obwód Twojego brzucha jest co najwyżej o 5% mniejszy niż bioder, a Twoje biodra są takie same lub węższe niż ramiona. Gdy tyjesz, najpierw powiększa się brzuch, a dopiero potem biodra, ramiona i ewentualnie górna część ud. Masz płaską pupę, krótką szyję i nogi, za które zbierasz komplementy. Twoj atalia jest krótka i wysoka, biust średni lub duży.",
-      "img": "imgO",
+      "src": "http://localhost:3000/images/sprite.png",
       "alt": "Grafika sylwetka O",
       "tips_arr": [
         "Spódnice: proste; ołówkowe; lekko rozkloszowane; z szerokim pasem na brzuchu; długość do kolan lub dłuższe mini",
@@ -31,7 +31,7 @@
       "id": "A",
       "name": "A",
       "description": "Obwód Twoich bioder jest o ponad 10% większy niż obwód biustu. Masz pełne uda i masywne w stosunku do reszty sylwetki nogi. Poza tym wąskie ramiona, średni lub drobny biust i talię, za którą zbierasz najwięcej komplementów. Twoja talia zazwyczaj jest długa.",
-      "img": "imgA",
+      "src": "http://localhost:3000/images/sprite.png",
       "alt": "Grafika sylwetka A",
       "tips_arr": [
         "Spódnice: o linii A; ołówkowe proste lub trapezowe z bocznymi rozcięciami; rozkloszowane, z koła; bez paska lub z wąskim paskiem ", 
@@ -44,7 +44,7 @@
       "id": "T",
       "name": "T",
       "description": "Sylwetka T i V różnią się wielkością biustu. T ma drobny biust, zaś V pełny. Obwód Twoich ramion w przypadku sylwetki T lub biustu w przypadku sylwetki V jest o około 10% większy niż obwód bioder. Właścicielki obu są podiziwiane za wąskie biodra i zgrabne, posągowe nogi. Talia zarówno u T, jak i V, jest lekko zarysowana.",
-      "img": "imgT",
+      "src": "http://localhost:3000/images/sprite.png",
       "alt": "Grafika sylwetka T",
       "tips_arr": [
         "Spódnice: tulipan, z koła, plisowane, kopertowe, o linii A, bombki",
@@ -58,7 +58,7 @@
       "id": "H",
       "name": "H",
       "description": "Sylwetka H lub I. Różnica w obwodzie ramion, biustu, bioder i talii nie przekracza 20%. H i I różnią się masą. H ma pełniejszą sylwetkę, I jest szczupłe o figurze chłopięcej. Gdy przybierasz na wadze, to wszędzie po równo. Obydwie sylwetki zbierają komplementy za świetne proporcje.",
-      "img": "img",
+      "src": "http://localhost:3000/images/sprite.png",
       "alt": "Grafika sylwetka H",
       "tips_arr": [
         "Spódnice: z półkola; kloszowe; o linii A; plisowane; tulipany; sarong", 
@@ -75,7 +75,7 @@
       "options": [{"value": "X", "answear": "Kobiece kształty biustu, talii, bioder"}, {"value": "O", "answear": "Kształtne nogi"}, {"value": "A", "answear": "Szczupła talia i ramiona"}, {"value": "T", "answear": "Wąskie biodra i zgrabne nogi, proporcje modelki"}, {"value": "H", "answear": "Proporcje sylwetki, jeśli tyjesz to równomiernie"}]
     },
     { "nr": 2,
-      "question": "Mankamenty Twojej sylwetki:",
+      "question": "Mankamenty Twojej sylwetki to:",
       "options": [{"value": "X", "answear": "Jeśli nie podkreślisz talii, sylwetka wygląda masywnie"}, {"value": "O", "answear": "Gdy tyjesz, najpierw powiększa się brzuch, płaska pupa"}, {"value": "A", "answear": "Pełne uda i masywne nogi w stosunku do sylwetki"}, {"value": "T", "answear": "Zbyt szerokie ramiona, męska sylwetka"}, {"value": "H", "answear": "Brak wcięcia w talii"}]
     },
     { "nr": 3,

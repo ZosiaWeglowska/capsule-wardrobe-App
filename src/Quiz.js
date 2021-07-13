@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Quiz.scss";
+import "./App.scss";
 import { Link } from "react-router-dom";
 import Question from "./Question";
-import X from "./images/X.png";
 
 //---funkcja do obsługi wyników quizu.
 // Zwraca tablicę najczęstszych wartości lub null (kiedy tablica wszystkich wartości jest niepełna).
@@ -90,47 +89,24 @@ const Quiz = () => {
       .then((data) => setQdata(data));
   }, []);
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:3001/figure_types`)
-  //     .then((resp) => {
-  //       if (resp.ok) return resp.json();
-  //       else throw new Error("Error in data");
-  //     })
-  //     .then((data) => setFTdata(data));
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:3001/questions`)
-  //     .then((resp) => {
-  //       if (resp.ok) return resp.json();
-  //       else throw new Error("Error in data");
-  //     })
-  //     .then((data) => setQdata(data));
-  // }, []);
-
- 
-
   if (stateFinal.length === 0) {
-
-    // console.log(Qdata[0].options);
-    // Czasem robi console loga, a czasem nie
-    //????????????????????????????????????????????
     
+    if (Qdata.length === 6) {
+      return (
+        <div className="container">
+          <Question num={1} data={Qdata[0]} handleChange={handleChange1} />
+          <Question num={2} data={Qdata[1]} handleChange={handleChange2} />
+          <Question num={3} data={Qdata[2]} handleChange={handleChange3} />
+          <Question num={4} data={Qdata[3]} handleChange={handleChange4} />
+          <Question num={5} data={Qdata[4]} handleChange={handleChange5} />
+          <Question num={6} data={Qdata[5]} handleChange={handleChange6} />
 
-    return (
-      <div className="container">
-        <Question num={1} handleChange={handleChange1} />
-        <Question num={2} handleChange={handleChange2} />
-        <Question num={3} handleChange={handleChange3} />
-        <Question num={4} handleChange={handleChange4} />
-        <Question num={5} handleChange={handleChange5} />
-        <Question num={6} handleChange={handleChange6} />
-
-        <button className="btn" onClick={handleClick}>
-          Sprawdź wynik
-        </button>
-      </div>
-    );
+          <button className="btn" onClick={handleClick}>
+            Sprawdź wynik
+          </button>
+        </div>
+      );
+    } else return <div>Ładowanie danych</div>;
   } else if (stateFinal.length === 1) {
     return (
       <div className="container">
@@ -142,7 +118,7 @@ const Quiz = () => {
               <article className="container_type" id={el.id} key={el.id}>
                 <h2>Sylwetka {el.name}</h2>
 
-                <img src={X} width="100px" alt={el.alt}></img>
+                <img src={el.src} width="100px" alt={el.alt}></img>
                 <p className="description">{el.description}</p>
 
                 <ul className="tips">
@@ -179,7 +155,7 @@ const Quiz = () => {
                 <article className="container_type" id={el.id} key={el.id}>
                   <h2>Sylwetka {el.name}</h2>
 
-                  <img src={X} width="100px" alt={el.alt}></img>
+                  <img src={el.src} width="100px" alt={el.alt}></img>
                   <p className="description">{el.description}</p>
 
                   <ul className="tips">
