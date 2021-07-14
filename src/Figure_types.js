@@ -20,7 +20,7 @@ const FTypes = () => {
   return (
     <div className="container">
       <img src={all} alt="all_figure_types" width="60%"></img>
-      <h1>Typy sylwetek</h1>
+      <h1 className="FT_header">Typy sylwetek</h1>
       {FTdata.map((el, index) => (<SingleType key={index} el={el}/>
       ))}
     </div>

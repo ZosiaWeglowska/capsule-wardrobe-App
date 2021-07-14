@@ -125,12 +125,13 @@ const Quiz = () => {
   } else
     return (
       <div className="container">
-        <h1>Masz cechy kilku typów sylwetek. Są to:</h1>
-        <ul>
+        
+        <h1 className="result_header">Masz cechy kilku typów sylwetek. Są to:</h1>
+        {/* <ul>
           {stateFinal.map((el) => (
-            <li>{`sylwetka ${el}`}</li>
+            <li className="result_type">{`sylwetka ${el}`}</li>
           ))}
-        </ul>
+        </ul> */}
 
         {stateFinal.map(function (type) {
           return FTdata.map(function (el, index) {

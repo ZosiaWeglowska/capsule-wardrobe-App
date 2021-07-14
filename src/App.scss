@@ -57,10 +57,13 @@ table {
 :root {
     font-family: 'Open Sans', sans-serif;
 }
+
 $firstColor: #622774;
 $secondColor: #C53364;
-$gradientIntro: linear-gradient(to right, $firstColor, $firstColor, white, $firstColor, $firstColor);
+// $gradientIntro: linear-gradient(to right, $firstColor, $firstColor, white, $firstColor, $firstColor);
+$gradientIntro: linear-gradient(to right, $secondColor, $firstColor, white, $firstColor, $secondColor);
 $gradientHeader: linear-gradient(to right, $firstColor, $secondColor);
+$gradientDetail: linear-gradient($secondColor, $firstColor);
 $gradientColor1: $firstColor;
 $gradientColor2: $secondColor;
 $textColor: #32143b;
@@ -106,14 +109,14 @@ $backgroundColor: #c5336415;
     }  
 
     .intro_header {
-        font-size: 2rem;
-        margin: 0.5rem;
-        padding: 0;
-        color: transparent;
-        background: $firstColor;
-        background-clip: text;
-      
-        animation: animate 3s linear;
+            // font-size: 2rem;
+            // margin: 0.5rem;
+            // padding: 0;
+            color: transparent;
+            background: $secondColor;
+            background-clip: text;
+        
+            animation: animate 3s linear;   
     }
 
     .btn_wraper {
@@ -135,7 +138,21 @@ $backgroundColor: #c5336415;
         justify-content: center;
         align-items: center;
         color: $textColor;
-        @include border-gradient($firstColor, $secondColor, 2px);
+        @include border-gradient($firstColor, $secondColor, 1px);
+    }
+
+    .btn:focus {
+        border: none;
+        padding: 1rem 2rem;
+        margin: 15px;
+        text-align: center;
+        font-size: 1rem;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $textColor;
+        @include border-gradient($firstColor, $secondColor, 1px);
     }
 
     a {
@@ -174,8 +191,8 @@ $backgroundColor: #c5336415;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: rgba(235, 233, 233, 0.521);
         border-radius: 5px;
+        box-shadow: 5px 5px 10px #888888;
 
         h2 {
             font-size: 1.5rem;
@@ -201,12 +218,17 @@ $backgroundColor: #c5336415;
 }
 
   .container_answear {
+    padding-left: 1rem;
+
     .radio {
         color: $textColor;
+        position: relative;
+        
+        
     }
     
     .radio input {
-        position: relative;
+        
         opacity: 0;
         height: 0;
         width: 0;
@@ -220,6 +242,8 @@ $backgroundColor: #c5336415;
     .radio span {
         display: inline-block;
         position: absolute;
+        left: -1rem;
+        top: 0.3rem;
         height: 0.75rem;
         width: 0.75rem;
         border-radius: 50%;
@@ -231,15 +255,17 @@ $backgroundColor: #c5336415;
   //-----------------Typy sylwetek - opisy
 
   .container {
-    h1 {
+    .FT_header {
         font-size: 1rem;;
         font-weight: 700;
     }
 
     .container_type {
         margin: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
         color: $textColor;
-        border: solid 1px $secondColor;
+        box-shadow: 5px 5px 10px #888888;
         border-radius: 5px;
         
 
@@ -252,16 +278,28 @@ $backgroundColor: #c5336415;
                 font-size: 1.5rem;
                 font-weight: 500;
                 padding: 0.5rem;
+                padding-top: 2rem;
                 color: transparent;
                 background: $gradientHeader;
                 background-clip: text;
             }
 
             .description {
+                position: relative;
                 width: 85%;
-                padding: 1rem;
-                background-color: $backgroundColor;
-                border-radius: 5px;
+                padding-left: 2rem;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .description::before {
+                content: "";
+                position: absolute;
+                left: 0.5rem;
+                display: block;
+                width: 8px;
+                height: 100%;
+                background: $gradientDetail;
             }
         }
        
@@ -295,8 +333,18 @@ $backgroundColor: #c5336415;
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color: $secondColor;
+            background-color: $firstColor;
         }
     }
      
 }
+
+//-------------Informacje o wynikach
+
+.container {
+    .result_header {
+        padding: 2rem;
+    }
+}
+
+
