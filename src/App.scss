@@ -57,13 +57,15 @@ table {
 :root {
     font-family: 'Open Sans', sans-serif;
 }
-
-$accentColor: #E91E63;
-$secondColor: #211ee9;
-$gradientIntro: linear-gradient(to right, $accentColor, $accentColor, white, $accentColor, $accentColor);
-$gradientColor1: skyblue;
-$gradientColor2: hotpink;
-$textColor: black; 
+$firstColor: #622774;
+$secondColor: #C53364;
+$gradientIntro: linear-gradient(to right, $firstColor, $firstColor, white, $firstColor, $firstColor);
+$gradientHeader: linear-gradient(to right, $firstColor, $secondColor);
+$gradientColor1: $firstColor;
+$gradientColor2: $secondColor;
+$textColor: #32143b;
+$secondTextColor: #C53364;
+$backgroundColor: #c5336415; 
 
 
 @mixin border-gradient($from, $to, $weight: 0) {
@@ -79,7 +81,7 @@ $textColor: black;
                 -1px 1px 0 $weight rgba($mix-main, .5),
                 1px 1px 0 $weight rgba($to, .75),
                 -1px -1px 0 $weight rgba($from, .75);
-  }
+}
 
 // ------------------ Nav i strona startowa
 
@@ -108,7 +110,7 @@ $textColor: black;
         margin: 0.5rem;
         padding: 0;
         color: transparent;
-        background: $accentColor;
+        background: $firstColor;
         background-clip: text;
       
         animation: animate 3s linear;
@@ -133,7 +135,7 @@ $textColor: black;
         justify-content: center;
         align-items: center;
         color: $textColor;
-        @include border-gradient($accentColor, $secondColor, 2px);
+        @include border-gradient($firstColor, $secondColor, 2px);
     }
 
     a {
@@ -157,38 +159,46 @@ $textColor: black;
         background-size: 250%;
         background-clip: text;
         background-position: right;
-
     }
-  }
+}
 
   //--------------Quiz
 
-  .container {
+.container {
 
       .container_question {
-        width: 100vw;
-        padding: 3rem 2rem;
+        width: 80vw;
+        margin: 1.5rem;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: rgba(235, 233, 233, 0.521);
+        border-radius: 5px;
 
         h2 {
             font-size: 1.5rem;
             padding-bottom: 0.5rem;
+            color: transparent;
+            background: $gradientHeader;
+            background-clip: text;
+            border: solid 1px;
         }
         
         .container_answears {
             display: flex;
             flex-direction: column;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
 
             .container_answear {
-                padding: 0.25rem
+                margin: 0.5rem;
             }
         }
 
       }
-  }
+}
 
   .container_answear {
     .radio {
@@ -196,59 +206,97 @@ $textColor: black;
     }
     
     .radio input {
-        position: absolute;
+        position: relative;
         opacity: 0;
         height: 0;
         width: 0;
       }
     
     .radio input:checked + span {
-        background-color: $accentColor;
+        background-color: $firstColor;
       }
       
 
     .radio span {
         display: inline-block;
+        position: absolute;
         height: 0.75rem;
         width: 0.75rem;
         border-radius: 50%;
         border: none;
-        margin-right: 10px;
         @include border-gradient($gradientColor1, $gradientColor2);
       }
   }
-  //-----------------Opisy figur
+
+  //-----------------Typy sylwetek - opisy
 
   .container {
-      .container_type {
-          margin: 2rem;
-        //   border: 1px solid black;
-          color: $textColor;
+    h1 {
+        font-size: 1rem;;
+        font-weight: 700;
+    }
 
-          h2 {
-              font-weight: 700;
-              margin-bottom: 0.5rem;
-          }
+    .container_type {
+        margin: 2rem;
+        color: $textColor;
+        border: solid 1px $secondColor;
+        border-radius: 5px;
+        
 
-          .description{
-              margin: 1rem
-          }
-          
-          .tip {
-              position: relative;
-              margin: 0.5rem;
-          }
-          .tip::before {
-              content: "";
-              position: absolute;
-              left: -1rem;
-              top: 0.25rem;
-              display: block;
-              width: 10px;
-              height: 10px;
-              border-radius: 50%;
-              background-color: $accentColor;
-          }
+        .header_wraper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-      }
-  }
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 500;
+                padding: 0.5rem;
+                color: transparent;
+                background: $gradientHeader;
+                background-clip: text;
+            }
+
+            .description {
+                width: 85%;
+                padding: 1rem;
+                background-color: $backgroundColor;
+                border-radius: 5px;
+            }
+        }
+       
+
+        .tips {
+            
+            padding-left: 2rem;
+            padding-right: 0.5rem;
+
+            h3 {
+                font-weight: 700;
+                color: transparent;
+                background: $gradientHeader;
+                background-clip: text;
+                padding-top: 1rem;
+                padding-bottom: 0.5rem;
+            }
+        }
+
+        .tip {
+            position: relative;
+            margin: 1rem;
+        }
+
+        .tip::before {
+            content: "";
+            position: absolute;
+            left: -1rem;
+            top: 0.25rem;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $secondColor;
+        }
+    }
+     
+}

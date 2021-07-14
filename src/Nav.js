@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { Link } from "react-router-dom";
-import logo from "./images/logo.svg";
+import logo from "./images/pink.svg";
 
 function Nav() {
   const [introOn, setIntroOn] = useState(true);
@@ -20,7 +20,7 @@ function Nav() {
       <div className="container">
         <div className="intro_wraper">
           <div className="logo">
-            <img src={logo} alt="logo" width="60px" />
+            <img src={logo} alt="logo" width="50px" />
           </div>
           <h1 className="intro_header">Capsule wardrobe</h1>
           <h2 className="intro_header">shape</h2>

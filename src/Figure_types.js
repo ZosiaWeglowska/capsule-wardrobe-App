@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.scss";
-// import "./Figure_types.scss";
 import { useState, useEffect } from "react";
-// import sprite from "./images/sprite.png";
-// import X from "./images/X.png"
-//------????????????????????????????????????
+import SingleType from "./Single_type";
+import all from "./images/all.png";
+
 
 const FTypes = () => {
   const [FTdata, setFTdata] = useState([]);
@@ -20,23 +19,9 @@ const FTypes = () => {
 
   return (
     <div className="container">
-      {FTdata.map((el) => (
-        <article className="container_type" id={el.id} key={el.id}>
-          <h2>Sylwetka {el.name}</h2>
-          <div className="img"></div>
-
-          <img src={el.src} width="300px" alt={el.alt}></img>
-          <p className="description">{el.description}</p>
-
-          <ul className="tips">
-            {el.tips_arr.map((el, index) => (
-              <li className="tip" key={index}>
-                {el}
-          <p className="description">{el.description}</p>
-              </li>
-            ))}
-          </ul>
-        </article>
+      <img src={all} alt="all_figure_types" width="60%"></img>
+      <h1>Typy sylwetek</h1>
+      {FTdata.map((el, index) => (<SingleType key={index} el={el}/>
       ))}
     </div>
   );

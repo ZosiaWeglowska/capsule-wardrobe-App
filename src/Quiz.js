@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { Link } from "react-router-dom";
 import Question from "./Question";
+import SingleType from "./Single_type";
 
 //---funkcja do obsługi wyników quizu.
 // Zwraca tablicę najczęstszych wartości lub null (kiedy tablica wszystkich wartości jest niepełna).
@@ -90,46 +91,29 @@ const Quiz = () => {
   }, []);
 
   if (stateFinal.length === 0) {
-    
     if (Qdata.length === 6) {
       return (
         <div className="container">
-          <Question num={1} data={Qdata[0]} handleChange={handleChange1} />
-          <Question num={2} data={Qdata[1]} handleChange={handleChange2} />
-          <Question num={3} data={Qdata[2]} handleChange={handleChange3} />
-          <Question num={4} data={Qdata[3]} handleChange={handleChange4} />
-          <Question num={5} data={Qdata[4]} handleChange={handleChange5} />
-          <Question num={6} data={Qdata[5]} handleChange={handleChange6} />
+          <Question data={Qdata[0]} handleChange={handleChange1} />
+          <Question data={Qdata[1]} handleChange={handleChange2} />
+          <Question data={Qdata[2]} handleChange={handleChange3} />
+          <Question data={Qdata[3]} handleChange={handleChange4} />
+          <Question data={Qdata[4]} handleChange={handleChange5} />
+          <Question data={Qdata[5]} handleChange={handleChange6} />
 
           <button className="btn" onClick={handleClick}>
             Sprawdź wynik
           </button>
         </div>
       );
-    } else return <div>Ładowanie danych</div>;
+    } else return null;
   } else if (stateFinal.length === 1) {
     return (
       <div className="container">
         <h1>Masz sylwetkę typu: {stateFinal.map((el) => el)} </h1>
 
-        {FTdata.map(function (el) {
-          if (el.id === stateFinal[0])
-            return (
-              <article className="container_type" id={el.id} key={el.id}>
-                <h2>Sylwetka {el.name}</h2>
-
-                <img src={el.src} width="100px" alt={el.alt}></img>
-                <p className="description">{el.description}</p>
-
-                <ul className="tips">
-                  {el.tips_arr.map((el, index) => (
-                    <li className="tip" key={index}>
-                      {el}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            );
+        {FTdata.map(function (el, index) {
+          if (el.id === stateFinal[0]) return <SingleType key={index} el={el} />
           else return null;
         })}
 
@@ -149,24 +133,8 @@ const Quiz = () => {
         </ul>
 
         {stateFinal.map(function (type) {
-          return FTdata.map(function (el) {
-            if (type === el.id)
-              return (
-                <article className="container_type" id={el.id} key={el.id}>
-                  <h2>Sylwetka {el.name}</h2>
-
-                  <img src={el.src} width="100px" alt={el.alt}></img>
-                  <p className="description">{el.description}</p>
-
-                  <ul className="tips">
-                    {el.tips_arr.map((el, index) => (
-                      <li className="tip" key={index}>
-                        {el}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              );
+          return FTdata.map(function (el, index) {
+            if (type === el.id) return <SingleType key={index} el={el} />
             else {
               return null;
             }
