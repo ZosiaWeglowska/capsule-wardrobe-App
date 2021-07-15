@@ -9,7 +9,7 @@ function Nav() {
   useEffect(() => {
     const startTimeOut = setTimeout(() => {
       setIntroOn(false);
-    }, 4000);
+    }, 5000);
     return () => {
       clearTimeout(startTimeOut);
     };
